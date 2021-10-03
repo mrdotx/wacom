@@ -3,7 +3,7 @@
 # path:   /home/klassiker/.local/share/repos/wacom/wacom.sh
 # author: klassiker [mrdotx]
 # github: https://github.com/mrdotx/wacom
-# date:   2021-09-20T09:38:31+0200
+# date:   2021-10-03T22:12:51+0200
 
 get_id() {
     printf "%s" "$list" \
@@ -39,19 +39,16 @@ get_display() {
 get_dimension() {
     resolution=$( \
         xrandr \
-        | sed -n "/^$1/,/\+/p" \
-            | tail -n 1 \
-            | awk '{print $1}' \
+            | grep "^$1" \
+            | grep -oE '[0-9]{1,4}x[0-9]{1,4}'
     )
 
     x=$( \
-        printf "%s" "$resolution" \
-            | sed "s/x.*//"
+        printf "%d" "${resolution%%x*}"
     )
 
     y=$( \
-        printf "%s" "$resolution" \
-            | sed "s/.*x//"
+        printf "%d" "${resolution##*x}"
     )
 
     wacom_x=$( \
