@@ -3,7 +3,11 @@
 # path:   /home/klassiker/.local/share/repos/wacom/wacom.sh
 # author: klassiker [mrdotx]
 # github: https://github.com/mrdotx/wacom
-# date:   2021-10-03T22:12:51+0200
+# date:   2021-10-14T21:45:30+0200
+
+# speed up script by not using unicode
+LC_ALL=C
+LANG=C
 
 get_id() {
     printf "%s" "$list" \
