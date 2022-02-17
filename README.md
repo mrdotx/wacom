@@ -1,6 +1,6 @@
 # wacom
 
-configuration of the wacom tablet at startup and when connected to the usb port
+configuration of the wacom tablet at startup and when connecting to the usb port
 
 ## install udev rule and service
 
