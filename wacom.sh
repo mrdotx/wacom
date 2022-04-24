@@ -3,9 +3,9 @@
 # path:   /home/klassiker/.local/share/repos/wacom/wacom.sh
 # author: klassiker [mrdotx]
 # github: https://github.com/mrdotx/wacom
-# date:   2022-04-21T10:45:05+0200
+# date:   2022-04-24T08:07:21+0200
 
-# speed up script by using posix
+# speed up script by using standard c
 LC_ALL=C
 LANG=C
 
