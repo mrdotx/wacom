@@ -1,7 +1,7 @@
 # path:   /home/klassiker/.local/share/repos/wacom/wacom.service
 # author: klassiker [mrdotx]
 # github: https://github.com/mrdotx/wacom
-# date:   2021-10-10T19:42:42+0200
+# date:   2022-06-18T20:28:50+0200
 
 [Unit]
 Description=configure wacom tablet
@@ -10,6 +10,7 @@ PartOf=default.target
 
 [Service]
 Type=oneshot
+RemainAfterExit=yes
 Environment=XAUTHORITY=%h/.local/share/xorg/Xauthority
 Environment=DISPLAY=:0
 ExecStartPre=/bin/sleep 3
