@@ -3,7 +3,7 @@
 # path:   /home/klassiker/.local/share/repos/wacom/wacom.sh
 # author: klassiker [mrdotx]
 # github: https://github.com/mrdotx/wacom
-# date:   2022-04-24T08:07:21+0200
+# date:   2022-07-12T10:54:00+0200
 
 # speed up script by using standard c
 LC_ALL=C
@@ -82,7 +82,7 @@ while [ $count -ge 1 ]; do
     [ -n "$list" ] \
         && break
     sleep 1
-    count=$((count-1))
+    count=$((count - 1))
 done
 
 if [ -n "$list" ]; then
