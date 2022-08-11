@@ -3,7 +3,7 @@
 # path:   /home/klassiker/.local/share/repos/wacom/wacom.sh
 # author: klassiker [mrdotx]
 # github: https://github.com/mrdotx/wacom
-# date:   2022-07-12T10:54:00+0200
+# date:   2022-08-08T20:13:31+0200
 
 # speed up script by using standard c
 LC_ALL=C
@@ -47,13 +47,8 @@ get_dimension() {
             | grep -oE '[0-9]{1,4}x[0-9]{1,4}'
     )
 
-    x=$( \
-        printf "%d" "${resolution%%x*}"
-    )
-
-    y=$( \
-        printf "%d" "${resolution##*x}"
-    )
+    x="${resolution%%x*}"
+    y="${resolution##*x}"
 
     wacom_x=$( \
         xsetwacom get "$2" Area \
@@ -76,6 +71,7 @@ set_wacom() {
     xsetwacom set "$id" Area "$dimension"
 }
 
+# wait x times/seconds for the connection
 count=10
 while [ $count -ge 1 ]; do
     list=$(xsetwacom list devices)
