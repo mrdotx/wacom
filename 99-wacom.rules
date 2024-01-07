@@ -1,6 +1,10 @@
 # path:   /home/klassiker/.local/share/repos/wacom/99-wacom.rules
 # author: klassiker [mrdotx]
 # github: https://github.com/mrdotx/wacom
-# date:   2021-09-19T21:02:55+0200
+# date:   2024-01-07T08:50:10+0100
 
-ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="056a", TAG+="systemd", ENV{SYSTEMD_USER_WANTS}+="wacom.service"
+ACTION=="add" \
+    , SUBSYSTEM=="usb" \
+    , ATTRS{idVendor}=="056a" \
+    , TAG+="systemd" \
+    , ENV{SYSTEMD_USER_WANTS}+="wacom.service"
