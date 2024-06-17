@@ -3,7 +3,7 @@
 # path:   /home/klassiker/.local/share/repos/wacom/wacom.sh
 # author: klassiker [mrdotx]
 # github: https://github.com/mrdotx/wacom
-# date:   2022-08-08T20:13:31+0200
+# date:   2024-06-16T16:59:54+0200
 
 # speed up script by using standard c
 LC_ALL=C
@@ -33,11 +33,9 @@ get_display() {
             | cut -d " " -f1
     )
 
-    if [ -z "$primary" ]; then
-        printf "%s\n" "$secondary"
-    else
-        printf "%s\n" "$primary"
-    fi
+    [ -z "$primary" ] \
+        && printf "%s\n" "$secondary" \
+        || printf "%s\n" "$primary"
 }
 
 get_dimension() {
@@ -62,7 +60,7 @@ get_dimension() {
 
 set_wacom() {
     id=$(get_id "$1")
-    display=$(get_display)
+    display=${2:-"$(get_display)"}
     dimension=$(get_dimension "$display" "$id")
 
     printf "xsetwacom set %s [%s] MapToOutput %s\n" "$id" "$1" "$display"
@@ -82,8 +80,8 @@ while [ $count -ge 1 ]; do
 done
 
 if [ -n "$list" ]; then
-    set_wacom "stylus"
-    set_wacom "eraser"
+    set_wacom "stylus" "$1"
+    set_wacom "eraser" "$1"
 else
     printf "no tablet connected for configuration"
     exit 0
