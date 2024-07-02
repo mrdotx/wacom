@@ -3,7 +3,7 @@
 # path:   /home/klassiker/.local/share/repos/wacom/wacom.sh
 # author: klassiker [mrdotx]
 # github: https://github.com/mrdotx/wacom
-# date:   2024-06-16T16:59:54+0200
+# date:   2024-07-01T19:57:59+0200
 
 # speed up script by using standard c
 LC_ALL=C
@@ -63,9 +63,11 @@ set_wacom() {
     display=${2:-"$(get_display)"}
     dimension=$(get_dimension "$display" "$id")
 
-    printf "xsetwacom set %s [%s] MapToOutput %s\n" "$id" "$1" "$display"
+    printf "xsetwacom set %s [%s] MapToOutput [%s]\n" \
+        "$id" "$1" "$display"
     xsetwacom set "$id" MapToOutput "$display"
-    printf "xsetwacom set %s [%s] Area %s\n" "$id" "$1" "$dimension"
+    printf "xsetwacom set %s [%s] Area [%s -> %s]\n" \
+        "$id" "$1" "$(xsetwacom get "$id" Area)" "$dimension"
     xsetwacom set "$id" Area "$dimension"
 }
 
