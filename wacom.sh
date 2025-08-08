@@ -2,8 +2,8 @@
 
 # path:   /home/klassiker/.local/share/repos/wacom/wacom.sh
 # author: klassiker [mrdotx]
-# github: https://github.com/mrdotx/wacom
-# date:   2024-07-01T19:57:59+0200
+# url:    https://github.com/mrdotx/wacom
+# date:   2025-08-08T05:32:27+0200
 
 # speed up script by using standard c
 LC_ALL=C
