@@ -3,7 +3,7 @@
 # path:   /home/klassiker/.local/share/repos/wacom/wacom.sh
 # author: klassiker [mrdotx]
 # url:    https://github.com/mrdotx/wacom
-# date:   2025-08-08T05:32:27+0200
+# date:   2025-10-04T05:53:34+0200
 
 # speed up script by using standard c
 LC_ALL=C
@@ -71,9 +71,8 @@ set_wacom() {
     xsetwacom set "$id" Area "$dimension"
 }
 
-# wait x times/seconds for the connection
-count=10
-while [ $count -ge 1 ]; do
+# wait x times (seconds) for the connection
+while [ "${count:-10}" -ge 1 ]; do
     list=$(xsetwacom list devices)
     [ -n "$list" ] \
         && break
@@ -85,6 +84,6 @@ if [ -n "$list" ]; then
     set_wacom "stylus" "$1"
     set_wacom "eraser" "$1"
 else
-    printf "no tablet connected for configuration"
+    printf "no tablet connected for configuration\n"
     exit 0
 fi
